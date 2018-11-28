@@ -1,0 +1,35 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Burger Eater</a>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col col-left text-center">
+        <h2>To Be Eaten</h2>
+        {{#each burgers}}
+          {{#unless devoured}}
+            {{> burgers/burger}}
+          {{/unless}}
+        {{/each}}
+      </div>
+      <div class="col col-center text-center">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="addBurger" aria-describedby="addBurger" placeholder="Add a burger">
+            <small id="addBurger" class="form-text text-muted">We'll never share your burger preferences with anyone else.</small>
+          </div>
+          <button type="submit" class="btn btn-primary addBurger">Add le Burger</button>
+        </form>
+      </div>
+      <div class="col col-right text-center">
+        <h2>Devoured</h2>
+        {{#each burgers}}
+          {{#if devoured}}
+            {{> burgers/burger}}
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
